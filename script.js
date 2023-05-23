@@ -3,11 +3,24 @@ btn.addEventListener("click", (e) => {
     let input = document.getElementById("in").value;
     let main = document.getElementById("main");
     console.log(input);
-    main.innerHTML += `<div id="reponse"> ${traitement(input)}</div>`;
+    main.innerHTML += `<p>Vous souhaitez développer : <span>${input}</span></p>`
+    main.innerHTML += `<div id="reponse"> ${dev(...traitement(input))}</div>`;
 });
 
 let traitement = (chaine) => {
     console.log(`ma fonction a reçu ${chaine}`);
+    // https://www.w3schools.com/jsref/jsref_split.asp
+    chaine = chaine.split("+");
+    let a = chaine[0].slice(1);
+    chaine = chaine[1].split(")");
+    let b = chaine[0];
+    let n = chaine[1].slice(1);
+    console.log(a,"-", b, "-", n);
     // faire des trucs
-    return "la nouvelle chaine";
+    return [a, b, n];
+}
+
+let dev = (a, b, n) => {
+    console.log(a, b, n);
+    return 42;
 }

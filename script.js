@@ -22,5 +22,9 @@ let traitement = (chaine) => {
 
 let dev = (a, b, n) => {
     console.log(a, b, n);
-    return 42;
+    let reponse = '';
+    for (let i = 0; i <= n; i++){
+        reponse += a +"^"+ i.toString()+b +"^"+ (n-i).toString()+" + ";
+    }
+    return reponse.slice(0, -3);
 }
